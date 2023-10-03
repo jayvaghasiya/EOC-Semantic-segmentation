@@ -25,7 +25,7 @@ This repo provides the code for training the semantic segmentation model on EOC 
                   ├──  images
                   ├──  labels
 
-  Note: images containe .jpg files and labels containe .png files.
+  Note: images contains .jpg files and labels contains .png files.
 
   4. Model-training:
      ```shell
