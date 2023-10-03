@@ -16,8 +16,8 @@ This repo provides the code for training the semantic segmentation model on EOC 
   Note: this scripts assume that you have your images and labels in single folder.
 
   3. After step 2 you have create datset as per this format:
-```
-Dataset
+
+          Dataset
        		   ├── train
              |     ├──  images
              |     ├──  labels
@@ -25,7 +25,6 @@ Dataset
              |     ├──  images
              |     ├──  labels
 
-```
   Note: images containe .jpg files and labels containe .png files.
 
   4. Model-training:
