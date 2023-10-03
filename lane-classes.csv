@@ -1,0 +1,14 @@
+name,r,g,b
+Background,0, 0, 0
+Dash Line ,255, 0, 0
+Long Line ,0, 0, 255 
+Small dash line,255, 255, 0
+Turn signs,0, 255, 0
+Other signs,255, 128, 0
+Plus sign on crossroads,128, 0, 0
+Crosswalk ,0, 255, 255
+Stop line ,0, 128, 0
+Zebra zone,255, 0, 255 
+No parking zone,0, 150, 150
+Parking space,200, 200, 0 
+Other lane-markings,100, 0, 200
