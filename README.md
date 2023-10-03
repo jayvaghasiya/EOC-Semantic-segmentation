@@ -19,11 +19,11 @@ This repo provides the code for training the semantic segmentation model on EOC 
 
           Dataset
        		   ├── train
-             |     ├──  images
-             |     ├──  labels
+                  ├──  images
+                  ├──  labels
        		   ├── val
-             |     ├──  images
-             |     ├──  labels
+                  ├──  images
+                  ├──  labels
 
   Note: images containe .jpg files and labels containe .png files.
 
