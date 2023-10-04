@@ -67,7 +67,7 @@ model.eval()
 model.to(device)
 feature_extractor_inference = SegformerFeatureExtractor(do_random_crop=False, do_pad=False)
 
-if args.source.endswith(".mp4") or args.source.endswith(".mvi"):
+if args.source.endswith(".mp4") or args.source.endswith(".avi"):
     cap = cv2.VideoCapture(args.source)
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
