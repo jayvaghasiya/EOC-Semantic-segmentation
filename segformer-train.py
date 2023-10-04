@@ -89,6 +89,7 @@ parser.add_argument('--classes',
 
 args = parser.parse_args()
 
+os.makedirs('./checkpoints',exist_ok=True)
 root_dir = os.path.join(args.dataset,"train")
 val_root_dir = os.path.join(args.dataset,"val")
 feature_extractor = SegformerFeatureExtractor(align=False, reduce_zero_label=False)
@@ -104,8 +105,8 @@ print(encoded_inputs['labels'])
 
 from torch.utils.data import DataLoader
 
-train_dataloader = DataLoader(train_dataset, batch_size=6, shuffle=True)
-valid_dataloader = DataLoader(valid_dataset, batch_size=6)
+train_dataloader = DataLoader(train_dataset, batch_size=3, shuffle=True)
+valid_dataloader = DataLoader(valid_dataset, batch_size=3)
 
 batch = next(iter(train_dataloader))
 for k,v in batch.items():
@@ -168,7 +169,7 @@ for epoch in range(1, 100):  # loop over the dataset multiple times
     else:
         model.eval()
         with torch.no_grad():
-            for idx, batch in enumerate(valid_dataloader):
+            for idx, batch in enumerate(tqdm(valid_dataloader)):
                 pixel_values = batch["pixel_values"].to(device)
                 labels = (batch["labels"]-1).to(device)
 
