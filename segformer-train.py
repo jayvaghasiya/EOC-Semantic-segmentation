@@ -189,6 +189,11 @@ for epoch in range(1, 100):  # loop over the dataset multiple times
     v_p_a = sum(val_accuracies)/len(val_accuracies)
     combined_score = v_p_a - v_l
     if combined_score > best_combined_score:
+        with open('best-checkpoint-info.txt','w')as f:
+            f.write(f"Model-Info")
+            f.write(f"\nTrain Loss : {sum(accuracies)/len(accuracies)}")
+            f.write(f"\nVal Pixel-wise accuracy: {sum(val_accuracies)/len(val_accuracies)}")
+            f.write(f"\nVal Loss: {sum(val_losses)/len(val_losses)}")
         best_combined_score = combined_score
         torch.save(model.state_dict(), f'./checkpoints/best.pt')
     
