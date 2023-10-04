@@ -86,6 +86,10 @@ parser.add_argument('--dataset',
 parser.add_argument('--classes',
                     type=str,
                         help='path/to/classes.csv')
+parser.add_argument('--batch',
+                    type=int,
+                    default=3,
+                        help='Bath size according to gpu memory')
 
 args = parser.parse_args()
 
@@ -105,8 +109,8 @@ print(encoded_inputs['labels'])
 
 from torch.utils.data import DataLoader
 
-train_dataloader = DataLoader(train_dataset, batch_size=3, shuffle=True)
-valid_dataloader = DataLoader(valid_dataset, batch_size=3)
+train_dataloader = DataLoader(train_dataset, batch_size=args.batch, shuffle=True)
+valid_dataloader = DataLoader(valid_dataset, batch_size=args.batch)
 
 batch = next(iter(train_dataloader))
 for k,v in batch.items():
