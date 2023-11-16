@@ -1,0 +1,17 @@
+name,r,g,b
+Background,0,0,0
+Low vegetation,244,35,232
+Paved road,102,102,156
+Non paved road,190,153,153
+Paved parking place,153,153,153
+Non paved parking place,250,170,30
+Bikeways,152,251,152
+Sidewalks,70,130,180
+Entrance exit,107,142,35
+Danger area,220,220,0
+Lane-markings,255,0,0
+Building,220,20,60
+Clutter,11,119,32
+Impervious surface,120,240,120
+Tree,70,70,70
+ 
