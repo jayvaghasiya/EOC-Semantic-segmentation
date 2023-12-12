@@ -158,7 +158,7 @@ for epoch in range(1, 100):  # loop over the dataset multiple times
         upsampled_logits = nn.functional.interpolate(outputs.logits, size=labels.shape[-2:], mode="bilinear", align_corners=False)
         predicted = upsampled_logits.argmax(dim=1)
 
-        mask = (labels != 0) # we don't include the background class in the accuracy calculation
+        mask = (labels != 255) # we don't include the background class in the accuracy calculation
         pred_labels = predicted[mask].detach().cpu().numpy()
         true_labels = labels[mask].detach().cpu().numpy()
         accuracy = accuracy_score(pred_labels, true_labels)
@@ -175,13 +175,13 @@ for epoch in range(1, 100):  # loop over the dataset multiple times
         with torch.no_grad():
             for idx, batch in enumerate(tqdm(valid_dataloader)):
                 pixel_values = batch["pixel_values"].to(device)
-                labels = (batch["labels"]).to(device)
+                labels = (batch["labels"]-1).to(device)
 
                 outputs = model(pixel_values=pixel_values, labels=labels)
                 upsampled_logits = nn.functional.interpolate(outputs.logits, size=labels.shape[-2:], mode="bilinear", align_corners=False)
                 predicted = upsampled_logits.argmax(dim=1)
 
-                mask = (labels != 0) # we don't include the background class in the accuracy calculation
+                mask = (labels != 255) # we don't include the background class in the accuracy calculation
                 pred_labels = predicted[mask].detach().cpu().numpy()
                 true_labels = labels[mask].detach().cpu().numpy()
                 accuracy = accuracy_score(pred_labels, true_labels)
